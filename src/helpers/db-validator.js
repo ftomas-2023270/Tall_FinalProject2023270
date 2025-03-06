@@ -7,9 +7,11 @@ export const existenteEmail = async(correo ='')=>{
     if(existeEmail){
         throw new Error(`El correo ${correo} ya esta registrado`)
     }
+
 }
 
 export const existeUsuarioById= async(id= '')=>{
+    
     const existeUsuario = await User.findById(id);
 
     if(!existeUsuario){

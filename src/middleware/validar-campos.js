@@ -7,5 +7,7 @@ export const validarCampos = (req, res, next)=>{
     if(!errors.isEmpty()){
         return next(errors.message);        
     }
+    
     next();
+
 }

@@ -41,13 +41,10 @@ export const register = async(req, res) => {
         
         const user = await Usuario.create({
             name: data.name,
-            surname: data.surname,
-            username: data.username,
             email: data.email,
             phone: data.phone,
             password: encryptedPassword,
-            role: data.role,
-            profilePicture
+            role: data.role || "USER_ROLE"
         })
 
         return res.status(201).json({

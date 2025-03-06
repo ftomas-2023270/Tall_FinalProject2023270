@@ -18,7 +18,8 @@ const middlewares = (app)=>{
 }
 
 const routes = (app) =>{
-    apps.use('/SuperMarket/v1/auth',authRoute)
+    app.use('/SuperMarket/v1/auth',authRoute)
+
 }
 
 const conectarDB = async()=>{
