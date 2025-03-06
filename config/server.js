@@ -6,6 +6,7 @@ import helmet from 'helmet';
 import morgan from 'morgan';
 import {dbConnection} from './mongo.js';
 import limiter from '../src/middleware/validar-cant-peticiones.js';
+import authRoute from '../src/auth/auth.routes.js';
 
 const middlewares = (app)=>{
     app.use(express.urlencoded({extended:false}));
@@ -17,6 +18,7 @@ const middlewares = (app)=>{
 }
 
 const routes = (app) =>{
+    apps.use('/SuperMarket/v1/auth',authRoute)
 }
 
 const conectarDB = async()=>{
