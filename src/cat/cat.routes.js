@@ -1,45 +1,49 @@
 import { Router } from "express";
 import { check } from "express-validator";
-import { getUserById,updateUser,deleteCat, getUsers } from "./user.controller.js";
+import { addCat,updateCat,getCats,getCatById,deleteUser } from "./cat.controller.js";
 import { validarCampos } from "../middleware/validar-campos.js";
 import { validarJWT } from "../middleware/valid-jwt.js";
 import { existeUsuarioById } from "../helpers/db-validator.js";
 import { tieneRole } from "../middleware/valid-role.js";
 
-const userRoutes = new Router();
+const catRoutes = new Router();
 
-userRoutes.get("/",getUsers);
+catRoutes.get("/",getCats);
 
-userRoutes.get(
+catRoutes.get(
     "/findUser/:id", 
     [
+        validarJWT,
+        tieneRole("ADMIN_ROLE"),
         check("id","No es un ID valido").isMongoId(),
         check("id").custom(existeUsuarioById),
         validarCampos
     ],
-    getUserById
+    getCatById
 );
 
-userRoutes.put(
+catRoutes.put(
     '/:id',
     [
+        validarJWT,
+        tieneRole("ADMIN_ROLE"),
         check("id","No es un ID valido").isMongoId(),
         check("id").custom(existeUsuarioById),
         validarCampos
     ],
-    updateUser
+    updateCat
 );
 
-userRoutes.delete(
+catRoutes.delete(
     "/:id",
     [
         validarJWT,
-        tieneRole("ADMIN_ROLE","VENTAS_ROLE"),
+        tieneRole("ADMIN_ROLE"),
         check("id","No es un ID valido").isMongoId(),
         check("id").custom(existeUsuarioById),
         validarCampos
     ],
-    deleteCat
+    deleteUser
 )
 
-export default userRoutes;
+export default catRoutes;

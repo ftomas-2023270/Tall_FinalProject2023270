@@ -2,6 +2,7 @@
 
 import mongoose from "mongoose";
 import { initUser } from "../src/auth/auth.controller.js";
+import { initCat } from "../src/cat/cat.controller.js";
 
 export const dbConnection = async() =>{
     try{
@@ -29,6 +30,7 @@ export const dbConnection = async() =>{
             maxPoolSize:50
         } );
         initUser();
+        initCat();
     }  catch(error){
         console.log('Database connection failes', error);
     } 

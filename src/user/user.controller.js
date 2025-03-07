@@ -82,7 +82,7 @@ export const updateUser = async(req,res = response)=>{
     }
 }
 
-export const deleteUser = async(req,res)=>{
+export const deleteCat = async(req,res)=>{
     try {
         
         const {id} = req.params;
