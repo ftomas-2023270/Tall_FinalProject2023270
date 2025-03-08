@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { check } from "express-validator";
-import { addCat,updateCat,getCats,getCatById,deleteUser } from "./cat.controller.js";
+import { addCat,updateCat,getCats,getCatById,deleteCat } from "./cat.controller.js";
 import { validarCampos } from "../middleware/validar-campos.js";
 import { validarJWT } from "../middleware/valid-jwt.js";
 import { existeUsuarioById } from "../helpers/db-validator.js";
@@ -43,7 +43,7 @@ catRoutes.delete(
         check("id").custom(existeUsuarioById),
         validarCampos
     ],
-    deleteUser
+    deleteCat
 )
 
 export default catRoutes;
