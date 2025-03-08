@@ -9,6 +9,7 @@ import limiter from '../src/middleware/validar-cant-peticiones.js';
 import authRoute from '../src/auth/auth.routes.js';
 import userRoutes from '../src/user/user.routes.js';
 import catRoutes from '../src/cat/cat.routes.js';
+import productRouter from '../src/product/product.routes.js';
 
 const middlewares = (app)=>{
     app.use(express.urlencoded({extended:false}));
@@ -22,7 +23,8 @@ const middlewares = (app)=>{
 const routes = (app) =>{
     app.use('/SuperMarket/v1/auth',authRoute),
     app.use('/SuperMarket/v1/user',userRoutes),
-    app.use('/SuperMarket/v1/cat',catRoutes)
+    app.use('/SuperMarket/v1/cat',catRoutes),
+    app.use('/SuperMarket/v1/product',productRouter)
 }
 
 const conectarDB = async()=>{

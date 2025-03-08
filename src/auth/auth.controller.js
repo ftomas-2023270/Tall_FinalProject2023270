@@ -44,7 +44,7 @@ export const register = async(req, res) => {
             email: data.email,
             phone: data.phone,
             password: encryptedPassword,
-            role: data.role || "USER_ROLE"
+            role: "CLIENT_ROLE"
         })
 
         return res.status(201).json({

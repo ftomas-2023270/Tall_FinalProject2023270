@@ -37,24 +37,36 @@ export const saveProduct = async(req, res )=>{
 
 export const getProduct = async (req, res) => {
     try {
-        const { limite = 10, desde = 0, sellest, soldOut } = req.query;
-        
+        const { limite = 10, desde = 0, sellest, soldOut, category } = req.query;
+
         let query = { status: true };
 
-        // Filtrar por productos agotados si el parámetro soldOut está presente
+        // Filtrar por productos agotados si soldOut está presente
         if (soldOut) {
             query.stock = 0;
         }
 
-        // Construcción de la consulta con opciones de ordenamiento
-        const sortOption = {};
+        // Filtrar por categoría si se proporciona el nombre de la categoría
+        if (category) {
+            const categoryData = await Category.findOne({ name: category });
+            if (!categoryData) {
+                return res.status(404).json({
+                    success: false,
+                    msg: "Category not found"
+                });
+            }
+            query.cat = categoryData._id; // Filtra los productos con esta categoría
+        }
+
+        // Configurar el orden de los productos si se solicita sort por sell
+        let sortOption = {};
         if (sellest) {
             sortOption.sell = -1; // Orden descendente (más vendidos primero)
         }
 
         // Obtener los productos filtrados y ordenados
         const products = await Product.find(query)
-            .sort(sortOption) // Aplica el orden si es necesario
+            .sort(sortOption)
             .skip(Number(desde))
             .limit(Number(limite));
 
