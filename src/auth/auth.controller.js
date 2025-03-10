@@ -6,7 +6,7 @@ export const initUser = async(req, res) => {
 
     try {
         const data = {
-            name: process.env.NAME,
+            username: process.env.NAME,
             email: process.env.EMAIL,
             password: process.env.PASSWORD,
             role: process.env.ROLE
@@ -36,11 +36,11 @@ export const register = async(req, res) => {
     try {
         const data = req.body;
         
-        let profilePicture = req.file ? req.file.filename : null;
         const encryptedPassword = await hash (data.password);
         
         const user = await Usuario.create({
             name: data.name,
+            username: data.username,
             email: data.email,
             phone: data.phone,
             password: encryptedPassword,
@@ -80,7 +80,7 @@ export const login = async(req, res) => {
             });
         }   
 
-        if(!user.estado){
+        if(!user.status){
             return  res.status(400).json({
                 msg: 'El usuario no existe en la base de datos'
             });

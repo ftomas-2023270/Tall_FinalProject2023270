@@ -159,7 +159,7 @@ export const deleteProduct  = async (req,res ) =>{
 export const updateProduct = async (req, res) => {
     
     const {id} = req.params;
-    const {_id,...data} = req.body;
+    const {...data} = req.body;
 
     try {
     

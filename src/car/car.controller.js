@@ -1,36 +1,18 @@
-import Car from "../models/Car.js";
-import Product from "../models/Product.js";
-import Invoice from "../models/Invoice.js";
+import Car from "../car/car.model.js";
+import Product from "../product/product.model.js";
+import Invoice from "../invoice/invoice.model.js";
 
-// Middleware para verificar el inventario antes de agregar al carrito
-export const checkInventory = async (req, res, next) => {
-    try {
-        const { productId, cant } = req.body;
-        const product = await Product.findById(productId);
-        
-        if (!product) {
-            return res.status(404).json({ message: "Product not found" });
-        }
-
-        if (product.stock < cant) {
-            return res.status(400).json({ message: "Not enough stock available" });
-        }
-
-        next();
-    } catch (error) {
-        res.status(500).json({ message: "Server error", error });
-    }
-};
 
 // Agregar productos al carrito
 export const addToCart = async (req, res) => {
     try {
-        const { clientId, productId, cant } = req.body;
+        const {id} = req.params;
+        const { productId, cant } = req.body;
         let cart = await Car.findOne({ client: clientId });
         const product = await Product.findById(productId);
 
         if (!cart) {
-            cart = new Car({ client: clientId, items: [], total: 0 });
+            cart = new Car({ client: id, items: [], total: 0 });
         }
 
         const subTotal = product.price * cant;
@@ -47,8 +29,9 @@ export const addToCart = async (req, res) => {
 // Editar productos en el carrito
 export const editCart = async (req, res) => {
     try {
-        const { clientId, productId, cant } = req.body;
-        let cart = await Car.findOne({ client: clientId });
+        const  {id} = req.params; 
+        const { productId, cant } = req.body;
+        let cart = await Car.findOne({ client: id });
         if (!cart) return res.status(404).json({ message: "Cart not found" });
 
         let item = cart.items.find(item => item._id.toString() === productId);
@@ -74,8 +57,9 @@ export const editCart = async (req, res) => {
 // Eliminar un producto del carrito
 export const removeFromCart = async (req, res) => {
     try {
-        const { clientId, productId } = req.body;
-        let cart = await Car.findOne({ client: clientId });
+        const  {id} = req.params;
+        const { productId } = req.body;
+        let cart = await Car.findOne({ client: id });
         if (!cart) return res.status(404).json({ message: "Cart not found" });
 
         cart.items = cart.items.filter(item => item._id.toString() !== productId);

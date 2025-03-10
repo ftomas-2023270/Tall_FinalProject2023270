@@ -10,6 +10,7 @@ import authRoute from '../src/auth/auth.routes.js';
 import userRoutes from '../src/user/user.routes.js';
 import catRoutes from '../src/cat/cat.routes.js';
 import productRouter from '../src/product/product.routes.js';
+import cartRoute from '../src/car/car.routes.js';
 
 const middlewares = (app)=>{
     app.use(express.urlencoded({extended:false}));
@@ -24,7 +25,9 @@ const routes = (app) =>{
     app.use('/SuperMarket/v1/auth',authRoute),
     app.use('/SuperMarket/v1/user',userRoutes),
     app.use('/SuperMarket/v1/cat',catRoutes),
-    app.use('/SuperMarket/v1/product',productRouter)
+    app.use('/SuperMarket/v1/product',productRouter),
+    app.use('/SuperMarket/v1/cart',cartRoute)
+
 }
 
 const conectarDB = async()=>{
@@ -45,6 +48,7 @@ export const initServer= async()=>{
         middlewares(app);
         conectarDB();
         app.listen(port);
+        routes(app)
         console.log(`Server running on port ${port}`)
     } catch (e) {
         console.log(`Server init failed: ${e}`)

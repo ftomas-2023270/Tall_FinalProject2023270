@@ -8,7 +8,7 @@ const Invoice = Schema({
     },
     date:{
         type: Date,
-        default: now()
+        default: Date.now().String
     },
     items:[{
         type: Schema.Types.ObjectId,
@@ -23,3 +23,5 @@ const Invoice = Schema({
         required: [true,'Must have the total']
     }
 })
+
+export default model('Invoice', Invoice)

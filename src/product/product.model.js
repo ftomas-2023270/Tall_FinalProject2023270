@@ -26,7 +26,8 @@ const Product = Schema({
     },
     sell:{
         type: Number,
-        min: [0, 'Must be a real number']
+        min: [0, 'Must be a real number'],
+        default: 0
     },
     status:{
         type:Boolean,

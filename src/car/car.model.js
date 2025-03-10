@@ -19,3 +19,5 @@ const Car = Schema({
         required:[true, 'Must have a total']
     }
 })
+
+export default model('Cart', Car);

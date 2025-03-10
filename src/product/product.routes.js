@@ -8,11 +8,10 @@ import { check } from "express-validator";
 
 const productRouter= Router();
 
-productRouter.get('/',tieneRole("ADMIN_ROLE","CLIENT_ROLE"),getProduct);
+productRouter.get('/',getProduct);
 
 productRouter.get('/:id',
     [
-        tieneRole("ADMIN_ROLE","CLIENT_ROLE"),
         check("id","Must be a valid ID").isMongoId(),
         validarCampos
     ],
@@ -21,8 +20,8 @@ productRouter.get('/:id',
 productRouter.post(
     '/',
     [
-        tieneRole("ADMIN_ROLE"),
         validarJWT,
+        tieneRole("ADMIN_ROLE"),
         validarCampos
     ],
     saveProduct
@@ -31,9 +30,9 @@ productRouter.post(
 productRouter.put(
     '/:id',
     [
+        validarJWT,
         tieneRole("ADMIN_ROLE"),
         check("id","Must be a valid ID").isMongoId(),
-        validarJWT,
         validarCampos
     ],
     updateProduct
@@ -42,9 +41,9 @@ productRouter.put(
 productRouter.delete(
     '/:id',
     [
+        validarJWT,
         tieneRole("ADMIN_ROLE"),
         check("id","Must be a valid ID").isMongoId(),
-        validarJWT,
         validarCampos
     ],
     deleteProduct)

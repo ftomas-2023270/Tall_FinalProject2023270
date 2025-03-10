@@ -2,13 +2,17 @@ import {Schema, model} from "mongoose";
 
 const UserSchema = Schema({
     name:{
+        type: String
+    },
+    username:{
         type: String,
-        unique: true
+        unique: true,
+        required:[true, 'Must need a username']
     },
     email: {
         type: String,
         required:[true, "Email is required"],
-        unique: true
+        unique:[ true, 'This email was registred']
     },
     password: {
         type: String,
@@ -25,7 +29,7 @@ const UserSchema = Schema({
         required: true,
         enum: ["ADMIN_ROLE","CLIENT_ROLE"]
     },
-    estado:{
+    status:{
         type: Boolean,
         default: true
     }
