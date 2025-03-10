@@ -20,6 +20,10 @@ const Product = Schema({
         min: [0, 'Must be a real number'],
         required: [true, 'Must initializate the stock of the product']
     },
+    price:{
+        type: Number,
+        required: [true, 'Product must have a price']
+    },
     sell:{
         type: Number,
         min: [0, 'Must be a real number']
