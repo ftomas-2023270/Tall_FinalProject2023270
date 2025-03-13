@@ -14,7 +14,6 @@ catRoutes.get("/",getCats);
 catRoutes.get(
     "/:id", 
     [
-        tieneRole("ADMIN_ROLE"),
         check("id","No es un ID valido").isMongoId(),
         check("id").custom(existeUsuarioById),
         validarCampos
@@ -49,9 +48,9 @@ catRoutes.delete(
     [
         validarJWT,
         tieneRole("ADMIN_ROLE"),
-        moveProductsToDefaultCategory,
         check("id","No es un ID valido").isMongoId(),
         check("id").custom(existeUsuarioById),
+        moveProductsToDefaultCategory,
         validarCampos
     ],
     deleteCat

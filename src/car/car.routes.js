@@ -8,7 +8,7 @@ import { validStock } from "../middleware/valid-stock.js";
 const cartRoute = new Router();
 
 cartRoute.post(
-    '/:id',
+    '/',
     [
         validarJWT,
         check("id","Must be a valid ID").isMongoId(),
@@ -20,7 +20,7 @@ cartRoute.post(
 )
 
 cartRoute.put(
-    '/:id',
+    '/',
     [
         validarJWT,
         check("id","Must be a valid ID").isMongoId(),
@@ -32,7 +32,7 @@ cartRoute.put(
 )
 
 cartRoute.post(
-    '/confirm/:id',
+    '/confirm/',
     [
         validarJWT,
         check("id","Must be a valid ID").isMongoId(),
@@ -42,7 +42,7 @@ cartRoute.post(
 )
 
 cartRoute.delete(
-    '/:id',
+    '/',
     [
         validarJWT,
         check("id","Must be a valid ID").isMongoId(),

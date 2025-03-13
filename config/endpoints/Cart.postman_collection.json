@@ -1,0 +1,135 @@
+{
+	"info": {
+		"_postman_id": "4263d33f-e247-4a02-8d06-fbd3a35289d6",
+		"name": "Cart",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "42637298"
+	},
+	"item": [
+		{
+			"name": "addToCart",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"productId\":\"\",\r\n    \"cant\":0\r\n}\r\n\r\n//Need JWT",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3330/SuperMarket/v1/car/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3330",
+					"path": [
+						"SuperMarket",
+						"v1",
+						"car",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "editCart",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"productId\":\"\",\r\n    \"cant\":0\r\n}\r\n\r\n//Need JWT",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3330/SuperMarket/v1/car/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3330",
+					"path": [
+						"SuperMarket",
+						"v1",
+						"car",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "removeToCart",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"productId\":\"\"\r\n}\r\n\r\n//Need JWT",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3330/SuperMarket/v1/car/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3330",
+					"path": [
+						"SuperMarket",
+						"v1",
+						"car",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "confirmPurchase",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "//Just need JWT",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3330/SuperMarket/v1/car/confirm/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3330",
+					"path": [
+						"SuperMarket",
+						"v1",
+						"car",
+						"confirm",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

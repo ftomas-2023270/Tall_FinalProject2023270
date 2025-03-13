@@ -1,0 +1,303 @@
+{
+	"info": {
+		"_postman_id": "e3c32745-552f-4250-aa2a-4f05a9babce1",
+		"name": "Stock",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "42637298"
+	},
+	"item": [
+		{
+			"name": "getCat",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2NlODkxZTBiYjJkYWRiNDFjNGE1YTgiLCJpYXQiOjE3NDE1OTEwODksImV4cCI6MTc0MTU5NDY4OX0.JPLK7K6VzTM4L4LJBx_2S_ptB7GXFlPWAjZHS4BzmXc",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3330/SuperMarket/v1/cat/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3330",
+					"path": [
+						"SuperMarket",
+						"v1",
+						"cat",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getCatById",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2QyNzI5MzgyYjdkN2JjZTAwMzk1YWMiLCJpYXQiOjE3NDE4NDUyMDMsImV4cCI6MTc0MTg0ODgwM30.gTRiJfiQAafZ0r05o5htNkl6xXVrnXCU-7TQOs9joSw",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3330/SuperMarket/v1/cat/67ce95f12a4d4da0de7cacd5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3330",
+					"path": [
+						"SuperMarket",
+						"v1",
+						"cat",
+						"67ce95f12a4d4da0de7cacd5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "addCat",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "x-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2QyNzI5MzgyYjdkN2JjZTAwMzk1YWMiLCJpYXQiOjE3NDE4NDUyMDMsImV4cCI6MTc0MTg0ODgwM30.gTRiJfiQAafZ0r05o5htNkl6xXVrnXCU-7TQOs9joSw",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"Clean\",\r\n    \"description\":\"Clean\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3330/SuperMarket/v1/cat/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3330",
+					"path": [
+						"SuperMarket",
+						"v1",
+						"cat",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateCat",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "x-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2QyNzI5MzgyYjdkN2JjZTAwMzk1YWMiLCJpYXQiOjE3NDE4NDUyMDMsImV4cCI6MTc0MTg0ODgwM30.gTRiJfiQAafZ0r05o5htNkl6xXVrnXCU-7TQOs9joSw",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"Food\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3330/SuperMarket/v1/cat/67ce95f12a4d4da0de7cacd5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3330",
+					"path": [
+						"SuperMarket",
+						"v1",
+						"cat",
+						"67ce95f12a4d4da0de7cacd5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteCat",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "x-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2QyNzI5MzgyYjdkN2JjZTAwMzk1YWMiLCJpYXQiOjE3NDE4NDUyMDMsImV4cCI6MTc0MTg0ODgwM30.gTRiJfiQAafZ0r05o5htNkl6xXVrnXCU-7TQOs9joSw",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3330/SuperMarket/v1/cat/67ce95f12a4d4da0de7cacd5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3330",
+					"path": [
+						"SuperMarket",
+						"v1",
+						"cat",
+						"67ce95f12a4d4da0de7cacd5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getProduct",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3330/SuperMarket/v1/product/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3330",
+					"path": [
+						"SuperMarket",
+						"v1",
+						"product",
+						""
+					],
+					"query": [
+						{
+							"key": "sellest",
+							"value": "true",
+							"disabled": true
+						},
+						{
+							"key": "soldOut",
+							"value": "true",
+							"disabled": true
+						},
+						{
+							"key": "category",
+							"value": "Meal",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getProductById",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3330/SuperMarket/v1/product/67ce9c70a733d30ed904012b",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3330",
+					"path": [
+						"SuperMarket",
+						"v1",
+						"product",
+						"67ce9c70a733d30ed904012b"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "addProduct",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "x-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2QyNzI5MzgyYjdkN2JjZTAwMzk1YWMiLCJpYXQiOjE3NDE4NDUyMDMsImV4cCI6MTc0MTg0ODgwM30.gTRiJfiQAafZ0r05o5htNkl6xXVrnXCU-7TQOs9joSw",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Banana\",\r\n    \"description\": \"fruit\",\r\n    \"cat\":\"Meal\",\r\n    \"stock\": 50,\r\n    \"price\": 10\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3330/SuperMarket/v1/product/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3330",
+					"path": [
+						"SuperMarket",
+						"v1",
+						"product",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateProduct",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "x-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2NlODkxZTBiYjJkYWRiNDFjNGE1YTgiLCJpYXQiOjE3NDE1OTEwODksImV4cCI6MTc0MTU5NDY4OX0.JPLK7K6VzTM4L4LJBx_2S_ptB7GXFlPWAjZHS4BzmXc",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"price\": 2\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3330/SuperMarket/v1/product/67ce9c70a733d30ed904012b",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3330",
+					"path": [
+						"SuperMarket",
+						"v1",
+						"product",
+						"67ce9c70a733d30ed904012b"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

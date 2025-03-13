@@ -13,6 +13,15 @@ export const saveProduct = async(req, res )=>{
                 message: 'Category not found'
             })
         }
+        
+        if(!cat.status){
+            return res.status(404).json({
+                success: false,
+                message: 'Category not found'
+            })
+        }
+    
+    
 
         const product = new Product({
             ...data,
